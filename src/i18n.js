@@ -17,7 +17,7 @@ const resources = {
         location: "Darmstadt, DE",
         semester: "5. Semester",
         projectsCount: "7+ GitHub Projects",
-        downloadBtn: "Download Resume",
+        downloadBtn: "View Resume",
         contactBtn: "Contact Me"
       },
       about: {
@@ -132,6 +132,11 @@ const resources = {
           }
         ]
       },
+      resumeSection: {
+        title: "The Classic CV.",
+        subtitle: "View or download the PDF version of my resume",
+        download: "Download PDF"
+      },
       contact: {
         title: "Let's work together.",
         subtitle: "An internship opportunity or an ambitious project? Let's discuss it.",
@@ -156,7 +161,7 @@ const resources = {
         location: "Darmstadt, DE",
         semester: "5. Semester",
         projectsCount: "7+ Projets GitHub",
-        downloadBtn: "Télécharger CV",
+        downloadBtn: "Voir le CV",
         contactBtn: "Me contacter"
       },
       about: {
@@ -271,6 +276,11 @@ const resources = {
           }
         ]
       },
+      resumeSection: {
+        title: "Le CV Classique.",
+        subtitle: "Consultez ou téléchargez la version PDF de mon CV",
+        download: "Télécharger PDF"
+      },
       contact: {
         title: "Travaillons ensemble.",
         subtitle: "Une opportunité de stage ou un projet ambitieux ? Discutons-en.",
@@ -295,7 +305,7 @@ const resources = {
         location: "Darmstadt, DE",
         semester: "5. Semester",
         projectsCount: "7+ GitHub Projekte",
-        downloadBtn: "Lebenslauf laden",
+        downloadBtn: "Lebenslauf ansehen",
         contactBtn: "Kontaktieren"
       },
       about: {
@@ -409,6 +419,11 @@ const resources = {
             desc: "Schwerpunkte: Mathematik und Physik."
           }
         ]
+      },
+      resumeSection: {
+        title: "Der klassische Lebenslauf.",
+        subtitle: "Lesen oder laden Sie die PDF-Version meines Lebenslaufs herunter",
+        download: "PDF Herunterladen"
       },
       contact: {
         title: "Kontakt aufnehmen.",

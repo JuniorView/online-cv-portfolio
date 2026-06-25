@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Github, Linkedin, Mail, Download, ExternalLink, MapPin, Code2, Briefcase, Terminal, Cpu } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ExternalLink, MapPin, Code2, Briefcase, Terminal, Cpu, FileText } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -132,8 +132,8 @@ export default function App() {
           <button onClick={() => changeLanguage('de')} className={`px-2 py-1 rounded-full transition-colors ${i18n.language.startsWith('de') ? 'bg-accent text-white' : 'text-textMain/50 hover:text-white'}`}>DE</button>
         </div>
 
-        <a href="Lebenslauf_f.pdf" download className="hidden md:flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-full text-sm font-medium magnetic-btn">
-          <Download size={16} /> {t('nav.resume')}
+        <a href="#resume" className="hidden md:flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-full text-sm font-medium magnetic-btn">
+          <FileText size={16} /> {t('nav.resume')}
         </a>
       </nav>
 
@@ -143,8 +143,13 @@ export default function App() {
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none"></div>
 
         <div className="z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
-          <div className="hero-anim w-32 h-32 md:w-40 md:h-40 rounded-full bg-surface border border-accent/30 flex items-center justify-center text-4xl font-bold text-accent/50 mb-8 shadow-[0_0_40px_rgba(123,97,255,0.15)]">
-            JD
+          <div className="hero-anim relative w-32 h-32 md:w-40 md:h-40 mb-8 group">
+            <div className="absolute inset-0 rounded-full bg-accent/20 blur-xl group-hover:bg-accent/40 transition-colors duration-500"></div>
+            <img 
+              src="/Junior.jpg" 
+              alt="Junior Dongmo Nguemo" 
+              className="relative w-full h-full object-cover object-center rounded-full border-2 border-accent/50 shadow-[0_0_40px_rgba(123,97,255,0.2)] group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
           <h1 className="hero-anim text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-4 text-glow text-white">
             Junior Dongmo Nguemo
@@ -162,8 +167,8 @@ export default function App() {
           </div>
 
           <div className="hero-anim flex flex-col sm:flex-row items-center gap-4">
-            <a href="CV_Junior_Dongmo_Nguemo.pdf" download className="magnetic-btn bg-accent text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 shadow-[0_0_20px_rgba(123,97,255,0.3)]">
-              {t('hero.downloadBtn')} <Download size={18} />
+            <a href="#resume" className="magnetic-btn bg-accent text-white px-8 py-4 rounded-full font-medium flex items-center gap-2 shadow-[0_0_20px_rgba(123,97,255,0.3)]">
+              {t('hero.downloadBtn')} <FileText size={18} />
             </a>
             <a href="#contact" className="magnetic-btn border border-white/10 hover:border-accent/50 bg-surface/50 px-8 py-4 rounded-full font-medium transition-colors">
               {t('hero.contactBtn')}
@@ -317,6 +322,35 @@ export default function App() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RESUME SECTION */}
+      <section id="resume" className="py-24 px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col items-center mb-16 text-center section-title">
+            <FileText className="text-accent mb-4" size={32} />
+            <h2 className="font-instrument text-4xl md:text-5xl text-white italic mb-4">{t('resumeSection.title')}</h2>
+            <p className="font-fira text-textMain/50">{t('resumeSection.subtitle')}</p>
+          </div>
+          <div className="fade-up bg-surface/50 p-2 md:p-6 rounded-[2rem] border border-white/5 shadow-2xl relative group">
+            <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+              <a href="/Lebenslauf_f.pdf" download className="magnetic-btn bg-accent/90 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 shadow-lg border border-white/10 hover:bg-accent transition-colors">
+                <Download size={14} /> {t('resumeSection.download')}
+              </a>
+            </div>
+            <div className="w-full h-[75vh] rounded-xl overflow-hidden border border-white/10 relative">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-background text-textMain/50 -z-10">
+                <div className="w-8 h-8 border-4 border-accent/30 border-t-accent rounded-full animate-spin mb-4"></div>
+                <p className="font-fira text-xs">Loading PDF...</p>
+              </div>
+              <iframe 
+                src="/Lebenslauf_f.pdf#view=FitH" 
+                className="w-full h-full relative z-10 bg-white"
+                title="Resume PDF"
+              />
+            </div>
           </div>
         </div>
       </section>
